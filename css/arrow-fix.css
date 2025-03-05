@@ -1,0 +1,22 @@
+/* Smooth arrow animation for articles section */
+@keyframes moving-arrow {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.articles .box .info i {
+  animation: moving-arrow 2s ease-in-out infinite !important;
+}
