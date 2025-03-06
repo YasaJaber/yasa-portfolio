@@ -1,0 +1,88 @@
+/* تعطيل التأثيرات الانتقالية مؤقتًا أثناء التمرير */
+.disable-transitions,
+.disable-transitions * {
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+
+
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  position: relative;
+}
+
+* {
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+.section-transition[data-direction="left"],
+.section-transition[data-direction="right"] {
+  transform: translateY(30px) !important;
+}
+
+.section-transition[data-direction="left"].section-visible,
+.section-transition[data-direction="right"].section-visible {
+  transform: translateY(0) !important;
+}
+
+html {
+  scroll-behavior: auto !important;
+}
+
+body {
+  position: relative;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.landing .scroll-to-footer {
+  text-align: center;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.landing .scroll-to-footer a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  color: var(--main-color);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.landing .scroll-to-footer a:hover {
+  background-color: var(--main-color);
+  color: white;
+  transform: translateY(-5px);
+}
+
+@keyframes simple-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.landing .scroll-to-footer i {
+  animation: simple-bounce 1.5s ease infinite;
+}
+
+.container {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
