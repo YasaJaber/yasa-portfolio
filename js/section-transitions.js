@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    // Get all major sections by their class names
     const mainSections = [
       safeGetElement('.header'),
       safeGetElement('.landing'),
