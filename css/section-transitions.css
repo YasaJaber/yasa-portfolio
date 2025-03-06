@@ -1,19 +1,17 @@
-/* Smooth section transitions on scroll */
 
-/* Base style for sections that will be animated */
 .section-transition {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-/* When section is visible */
+
 .section-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Optional: Different animations based on data attribute */
+
 .section-transition[data-direction="left"] {
   transform: translateX(-30px);
 }

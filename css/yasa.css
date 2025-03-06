@@ -8,6 +8,11 @@
   --main-background-color: #ececec;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -563,6 +568,7 @@ ul {
   padding-bottom: var(--section-padding-bottom);
   position: relative;
   background-color: var(--main-background-color);
+  overflow: hidden;
 }
 
 .gallery .container {
@@ -580,10 +586,12 @@ ul {
   border-radius: 10px;
   box-shadow: 0 2px 4px 0px rgb(0 0 0 / 10%), 0 12px 20px 0px rgb(0 0 0 / 13%);
   transition: transform 0.8s;
+  width: 100%;
 }
 
 .gallery .box img {
   max-width: 100%;
+  width: 100%;
 }
 
 .gallery .box .image {
@@ -628,6 +636,7 @@ ul {
   padding-bottom: var(--section-padding-bottom);
   position: relative;
   background-color: white;
+  overflow: hidden;
 }
 
 .features .container {
@@ -1519,7 +1528,6 @@ ul {
   animation: shake-image 5s ease-in-out infinite;
 }
 
-/* إضافة الإشعارات للصورة */
 .events img::before {
   content: '';
   position: absolute;
@@ -1878,28 +1886,30 @@ ul {
   font-weight: bold;
   position: relative;
   overflow: hidden;
-  transition: all 0.4s ease;
-  animation: submit-entry 1s ease-out 0.3s backwards;
   z-index: 1;
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease;
 }
 
 .subscribe form input[type="submit"]::before {
-  content: '';
+  content: "";
   position: absolute;
+  top: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
   background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.7s;
+  transition: all 0.4s;
   z-index: -1;
   left: 0;
 }
 
 .subscribe form input[type="submit"]:hover {
   transform: translateY(-5px);
-  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px rgba(var(--main-color-rgb), 0.4);
   letter-spacing: 1px;
+  background-color: #64b4f4;
 }
 
 .subscribe form input[type="submit"]:hover::before {
@@ -2459,7 +2469,7 @@ ul {
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zM34 90c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232196f3' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zM34 90c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232196f3' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
   opacity: 0.3;
   z-index: 0;
   animation: pulse-bg 10s infinite alternate;
@@ -2871,8 +2881,8 @@ ul {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contact.animate input[type="submit"] {
@@ -3819,5 +3829,42 @@ ul {
 
   100% {
     transform: scale(1);
+  }
+}
+
+@media (max-width: 767px) {
+  .header .main-nav > li:last-child {
+    display: none;
+  }
+
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+
+  .container {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .header .main-nav {
+    justify-content: center;
+  }
+  
+  .events .info .time {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .events .info .time .unit {
+    width: 70px;
+  }
+  
+  .events .subscribe form input[type="email"] {
+    width: 100%;
+    max-width: 300px;
   }
 }
